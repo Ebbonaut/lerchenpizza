@@ -1,0 +1,37 @@
+name: Create and publish a Docker image
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build the project
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: lerchenpizza.saxhardt.de
+          username: ${{ secrets.NETCUP_FTP_USER }}
+          password: ${{ secrets.NETCUP_FTP_PW }}
+          server-dir: ./lerchenpizza.saxhardt.de/httpdocs/
+          local-dir: ./build/

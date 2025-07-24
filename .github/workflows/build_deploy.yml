@@ -34,4 +34,4 @@ jobs:
           username: ${{ secrets.NETCUP_FTP_USER }}
           password: ${{ secrets.NETCUP_FTP_PW }}
           server-dir: ./lerchenpizza.saxhardt.de/httpdocs/
-          local-dir: ./build/
+          local-dir: ./dist/

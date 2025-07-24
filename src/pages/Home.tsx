@@ -1,38 +1,87 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import Contact from './Contact';
 
 const Home = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <section className="text-center">
-        <h1 className="text-5xl font-bold text-gray-800 mb-4">
-          Willkommen bei Lerchenpizza
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Authentische neapolitanische Pizza, mit Liebe von Laura zubereitet.
-        </p>
-        <Link 
-          to="/menu" 
-          className="bg-olive-500 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-olive-600 transition-colors"
+    <>
+      <section 
+        className="h-[60vh] bg-cover bg-center bg-fixed flex items-center justify-center text-white"
+        style={{ backgroundImage: "url('https://placehold.co/1920x1080/2D2D2D/F5F1EB?text=Lerchenpizza')" }}
+      >
+        <motion.div 
+          className="text-center bg-black/50 p-8 rounded-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          Zur Speisekarte
-        </Link>
+          <h1 className="text-6xl font-bold mb-4">
+            Willkommen bei Lerchenpizza
+          </h1>
+          <p className="text-2xl mb-8">
+            Authentische neapolitanische Pizza, mit Liebe von Laura zubereitet.
+          </p>
+          <Link 
+            to="/menu" 
+            className="bg-olive-500 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-olive-600 transition-all duration-300 transform hover:scale-105"
+          >
+            Zur Speisekarte
+          </Link>
+        </motion.div>
       </section>
 
-      <section className="mt-16 grid md:grid-cols-3 gap-8 text-center">
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-2xl font-semibold text-olive-600 mb-2">Lange Teigführung</h3>
-          <p className="text-gray-600">Unser Teig ruht mindestens 72 Stunden für einen unvergleichlichen Geschmack und eine leichte Verdaulichkeit.</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-2xl font-semibold text-olive-600 mb-2">Frische Zutaten</h3>
-          <p className="text-gray-600">Wir verwenden nur die besten, sorgfältig ausgewählten Zutaten für ein authentisches Geschmackserlebnis.</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-2xl font-semibold text-olive-600 mb-2">Handgemacht</h3>
-          <p className="text-gray-600">Jede Pizza wird von Laura persönlich mit Leidenschaft und nach traditionellem Rezept zubereitet.</p>
-        </div>
+      <div className="container mx-auto px-4 py-16">
+        <section className="mt-8 grid md:grid-cols-3 gap-8 text-center">
+          <motion.div 
+            className="bg-white p-8 rounded-lg shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="text-3xl font-semibold text-olive-600 mb-3">Lange Teigführung</h3>
+            <p className="text-gray-600">Unser Teig ruht mindestens 72 Stunden für einen unvergleichlichen Geschmack und eine leichte Verdaulichkeit.</p>
+          </motion.div>
+          <motion.div 
+            className="bg-white p-8 rounded-lg shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h3 className="text-3xl font-semibold text-olive-600 mb-3">Frische Zutaten</h3>
+            <p className="text-gray-600">Wir verwenden nur die besten, sorgfältig ausgewählten Zutaten für ein authentisches Geschmackserlebnis.</p>
+          </motion.div>
+          <motion.div 
+            className="bg-white p-8 rounded-lg shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <h3 className="text-3xl font-semibold text-olive-600 mb-3">Handgemacht</h3>
+            <p className="text-gray-600">Jede Pizza wird von Laura persönlich mit Leidenschaft und nach traditionellem Rezept zubereitet.</p>
+          </motion.div>
+        </section>
+      </div>
+
+      <section 
+        className="h-[50vh] bg-cover bg-center bg-fixed flex items-center justify-center text-white"
+        style={{ backgroundImage: "url('https://placehold.co/1920x1080/8B9A6B/FFFFFF?text=Frische+Zutaten')" }}
+      >
+        <motion.div 
+          className="text-center bg-black/50 p-8 rounded-lg max-w-3xl"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1 }}
+        >
+          <h2 className="text-4xl font-bold mb-4">Qualität, die man schmeckt</h2>
+          <p className="text-xl">
+            Vom sonnengereiften San-Marzano-Tomaten bis zum cremigen Fior di Latte – wir setzen auf kompromisslose Qualität und Frische. Das ist unser Versprechen für den perfekten Pizzagenuss.
+          </p>
+        </motion.div>
       </section>
-    </div>
+
+      <Contact />
+    </>
   );
 };
 

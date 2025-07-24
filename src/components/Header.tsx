@@ -13,7 +13,7 @@ const Header = () => {
           <Link to="/" className="text-gray-600 hover:text-olive-600 transition-colors">Home</Link>
           <Link to="/menu" className="text-gray-600 hover:text-olive-600 transition-colors">Speisekarte</Link>
           <Link to="/about" className="text-gray-600 hover:text-olive-600 transition-colors">Über uns</Link>
-          <Link to="/contact" className="bg-olive-500 text-white px-4 py-2 rounded-md hover:bg-olive-600 transition-colors">Kontakt</Link>
+          <Link to="/contact" className="text-gray-600 hover:text-olive-600 transition-colors">Kontakt</Link>
         </nav>
       </div>
     </header>
